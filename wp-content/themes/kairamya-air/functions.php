@@ -1,4 +1,3 @@
-
 <?php
 
 // >>>>>>>>>>>>>>>>>>>>> Added Excerpt to Default WP Post
@@ -6,6 +5,7 @@ function add_excerpt_to_default_post() {
     add_post_type_support('post', 'excerpt');
 }
 add_action('init', 'add_excerpt_to_default_post');
+
 
 
 // >>>>>>>>>>>>>>>>>>>>> Embed the SVG type media in the backend
@@ -25,8 +25,6 @@ add_action('after_setup_theme', 'aevier_register_menus');
 
 // >>>>>>>>>>>>>>>>>>>>> Enable support for featured images
 add_theme_support('post-thumbnails');
-
-
 
 
 
@@ -62,7 +60,6 @@ function register_aircraft_custom_post_type() {
     register_post_type('aircrafts', $args);
 }
 add_action('init', 'register_aircraft_custom_post_type');
-
 
 
 
@@ -102,38 +99,72 @@ add_action('init', 'register_services_custom_post_type');
 
 
 // >>>>>>>>>>>>>>>>> Register Private Flights Custom Post Type
-function register_private_flights_custom_post_type() {
+// function register_private_flights_custom_post_type() {
+//     $labels = [
+//         'name'                  => 'Private Flights',
+//         'singular_name'         => 'Private Flight',
+//         'menu_name'             => 'Private Flights',
+//         'name_admin_bar'        => 'Private Flight',
+//         'add_new'               => 'Add New',
+//         'add_new_item'          => 'Add New Private Flight',
+//         'new_item'              => 'New Private Flight',
+//         'edit_item'             => 'Edit Private Flight',
+//         'view_item'             => 'View Private Flight',
+//         'all_items'             => 'All Private Flight',
+//         'search_items'          => 'Search Private Flights',
+//         'not_found'             => 'No Private Flights found!',
+//         'not_found_in_trash'    => 'No Private Flights found in Trash.',
+//     ];
+
+//     $args = [
+//         'labels'             => $labels,
+//         'public'             => true,
+//         // 'has_archive'        => 'all-collections', // ✅ Archive uses a non-conflicting slug
+//         'rewrite'            => ['slug' => 'private-flights'], // ✅ Single post URL is /case-studies/post-name
+//         'show_in_rest'       => true,
+//         'supports'           => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'],
+//         'menu_position'      => 5,
+//         'menu_icon'          => 'dashicons-post-status',
+//         // 'taxonomies'      => ['category'], // Uncomment if needed
+//     ];
+//     register_post_type('private_flights', $args);
+// }
+// add_action('init', 'register_private_flights_custom_post_type');
+
+
+
+// >>>>>>>>>>>>>>>>> Register Empty Flights Custom Post Type
+function register_empty_flights_custom_post_type() {
     $labels = [
-        'name'                  => 'Private Flights',
-        'singular_name'         => 'Private Flight',
-        'menu_name'             => 'Private Flights',
-        'name_admin_bar'        => 'Private Flight',
+        'name'                  => 'Empty Flights',
+        'singular_name'         => 'Empty Flight',
+        'menu_name'             => 'Empty Flights',
+        'name_admin_bar'        => 'Empty Flight',
         'add_new'               => 'Add New',
-        'add_new_item'          => 'Add New Private Flight',
-        'new_item'              => 'New Private Flight',
-        'edit_item'             => 'Edit Private Flight',
-        'view_item'             => 'View Private Flight',
-        'all_items'             => 'All Private Flight',
-        'search_items'          => 'Search Private Flights',
-        'not_found'             => 'No Private Flights found!',
-        'not_found_in_trash'    => 'No Private Flights found in Trash.',
+        'add_new_item'          => 'Add New Empty Flight',
+        'new_item'              => 'New Empty Flight',
+        'edit_item'             => 'Edit Empty Flight',
+        'view_item'             => 'View Empty Flight',
+        'all_items'             => 'All Empty Flights',
+        'search_items'          => 'Search Empty Flights',
+        'not_found'             => 'No Empty Flights found!',
+        'not_found_in_trash'    => 'No Empty Flights found in Trash.',
     ];
 
     $args = [
         'labels'             => $labels,
         'public'             => true,
         // 'has_archive'        => 'all-collections', // ✅ Archive uses a non-conflicting slug
-        'rewrite'            => ['slug' => 'private-flights'], // ✅ Single post URL is /case-studies/post-name
+        'rewrite'            => ['slug' => 'empty-flights'], // ✅ Single post URL is /case-studies/post-name
         'show_in_rest'       => true,
         'supports'           => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'],
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-post-status',
         // 'taxonomies'      => ['category'], // Uncomment if needed
     ];
-    register_post_type('private_flights', $args);
+    register_post_type('empty_flights', $args);
 }
-add_action('init', 'register_private_flights_custom_post_type');
-
+add_action('init', 'register_empty_flights_custom_post_type');
 
 
 
@@ -156,4 +187,3 @@ add_action('init', 'register_private_flights_custom_post_type');
 
 
 ?>
-

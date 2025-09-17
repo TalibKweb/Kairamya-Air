@@ -6,13 +6,7 @@
 get_header();
 ?>
 
-<h1>Home Page</h1>
-
-<!-- <h2>Form</h2> -->
-<?php
-    // echo do_shortcode('[contact-form-7 id="d8285ce" title="Footer newsletter form"]');
-?>
-
+</div>
 <?php
 get_footer();
 ?>
