@@ -192,6 +192,7 @@
 
 <script src="<?php echo get_template_directory_uri() ?>/js/anim.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/common.js"></script>
+
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -278,7 +279,7 @@
     /********************************************************************/
 
     $(document).ready(function() {
-        console.log('plane Thumb', $('.planeThumb:first-child'))
+        // console.log('plane Thumb', $('.planeThumb:first-child'))
         $('.planeThumb:first-child').addClass('active')
     });
 

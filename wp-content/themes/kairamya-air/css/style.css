@@ -1682,3 +1682,13 @@ svg.topEdge {
     width: 1.25vw;
   }
 }
+
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Additional CSS Home Page */
+
+.stroke_cont:last-child {
+  /* background-color: red; */
+  display: none;
+}
+
+

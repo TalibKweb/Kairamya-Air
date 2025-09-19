@@ -147,7 +147,15 @@ get_header();
                                     'post_type' => 'aircrafts',
                                     'posts_per_page' => -1,
                                     'order_by' => 'date',
-                                    'order' =>  'ASC'
+                                    'order' =>  'ASC',
+                                    'tax_query'      => [
+                                        [
+                                            'taxonomy' => 'aircraft_tag',    // or your custom taxonomy slug
+                                            'field'    => 'slug',        // can be 'term_id' or 'name' too
+                                            'terms'    => 'featured', // single slug or array of slugs
+                                        ],
+                                    ],
+
                                 ];
 
                                 $aircrafts_fetch_query = new WP_Query($aircrafts_posts_arr);
@@ -177,7 +185,7 @@ get_header();
                                             </div>
                                         </div>
 
-                                        <div class="col-2 col-sm-1">
+                                        <div class="col-2 col-sm-1 stroke_cont ">
                                             <div class="stroke">
 
                                             </div>
@@ -195,7 +203,6 @@ get_header();
                                 endif;
                                 ?>
 
-
                             </div>
 
                         </div>
@@ -208,7 +215,14 @@ get_header();
                                     'post_type' => 'aircrafts',
                                     'posts_per_page' => -1,
                                     'order_by' => 'date',
-                                    'order' =>  'ASC'
+                                    'order' =>  'ASC',
+                                    'tax_query'      => [
+                                        [
+                                            'taxonomy' => 'aircraft_tag',    // or your custom taxonomy slug
+                                            'field'    => 'slug',        // can be 'term_id' or 'name' too
+                                            'terms'    => 'featured', // single slug or array of slugs
+                                        ],
+                                    ],
                                 ];
 
                                 $aircrafts_fetch_query = new WP_Query($aircrafts_posts_arr);
@@ -218,7 +232,7 @@ get_header();
                                 ?>
 
                                         <div class="card-body p-4 aircraftCard">
-                                            
+
                                             <h5 class="text-primary fw-bold mb-3"><?php the_title(); ?></h5>
                                             <hr class="opacity-25 dashed-border">
                                             <p class="text-secondary mb-4"><?php echo get_field('description') ?></p>
@@ -671,39 +685,6 @@ get_header();
                             endif;
                             ?>
 
-                            <!-- <div class="swiper-slide">
-                                <article class="card h-100 shadow-sm hover-lift">
-                                    <img src="<?php echo get_template_directory_uri() ?>/images/blog_section_6/1.jpg" alt="Blog 1">
-                                    <div class="card-body eqHeight">
-                                        <div class="date">07 August 2025</div>
-                                        <h5 class="card-title">Flight's precautionary landing in Dubai of Lorem
-                                            ipsum
-                                        </h5>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="swiper-slide">
-                                <article class="card h-100 shadow-sm hover-lift">
-                                    <img src="<?php echo get_template_directory_uri() ?>/images/blog_section_6/2.jpg" alt="Blog 2">
-                                    <div class="card-body eqHeight">
-                                        <div class="date">07 August 2025</div>
-                                        <h5 class="card-title">Flight's precautionary landing in Dubai of Lorem
-                                            ipsum
-                                        </h5>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="swiper-slide">
-                                <article class="card h-100 shadow-sm hover-lift">
-                                    <img src="<?php echo get_template_directory_uri() ?>/images/blog_section_6/3.jpg" alt="Blog 3">
-                                    <div class="card-body eqHeight">
-                                        <div class="date">07 August 2025</div>
-                                        <h5 class="card-title">Flight's precautionary landing in Dubai of Lorem
-                                            ipsum
-                                        </h5>
-                                    </div>
-                                </article>
-                            </div> -->
                         </div>
                     </div>
                 </div>

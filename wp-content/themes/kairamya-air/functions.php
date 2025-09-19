@@ -22,6 +22,34 @@ function aevier_register_menus() {
 }
 add_action('after_setup_theme', 'aevier_register_menus');
 
+// >>>>>>>>>>>>>>>>>>>>>>>>>> Menu Related Code
+add_filter('nav_menu_css_class', function ($classes, $item, $args) {
+    if (isset($args->add_li_class)) {
+        $classes = [$args->add_li_class]; // override
+    }
+    return $classes;
+}, 10, 3);
+
+add_filter('nav_menu_link_attributes', function ($atts, $item, $args) {
+    if (isset($args->link_class)) {
+        $atts['class'] = $args->link_class;
+    }
+    return $atts;
+}, 10, 3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // >>>>>>>>>>>>>>>>>>>>> Enable support for featured images
 add_theme_support('post-thumbnails');
@@ -60,6 +88,39 @@ function register_aircraft_custom_post_type() {
     register_post_type('aircrafts', $args);
 }
 add_action('init', 'register_aircraft_custom_post_type');
+
+
+// >>>>>>>>>>>>>>>>> Register Aircraft Tag Taxonomy
+function register_aircraft_taxonomy() {
+    $labels = [
+        'name'              => 'Aircraft Tags',
+        'singular_name'     => 'Aircraft Tag',
+        'search_items'      => 'Search Aircraft Tags',
+        'all_items'         => 'All Aircraft Tags',
+        'parent_item'       => 'Parent Aircraft Tag',
+        'parent_item_colon' => 'Parent Aircraft Tag:',
+        'edit_item'         => 'Edit Aircraft Tag',
+        'update_item'       => 'Update Aircraft Tag',
+        'add_new_item'      => 'Add New Aircraft Tag',
+        'new_item_name'     => 'New Aircraft Tag Name',
+        'menu_name'         => 'Aircraft Tags',
+    ];
+
+    $args = [
+        'hierarchical'      => false, // true = behaves like categories, false = like tags
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => ['slug' => 'aircraft-tag'],
+        'show_in_rest'      => true, // enable for Gutenberg & REST API
+    ];
+
+    register_taxonomy('aircraft_tag', ['aircrafts'], $args);
+}
+add_action('init', 'register_aircraft_taxonomy');
+
+
 
 
 
