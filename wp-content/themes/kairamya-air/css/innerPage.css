@@ -12,14 +12,15 @@ body {
 }
 
 .innerBanner {
-  background: red;
   position: relative;
   aspect-ratio: 1/1;
 }
-.innerBanner img {
+.innerBanner img,
+.innerBanner video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 .ibTxt {
   position: absolute;
@@ -99,6 +100,7 @@ body {
 }
 .imgWhitePatch img {
   width: 100%;
+  display: block;
 }
 
 .counterWrp {
@@ -306,5 +308,273 @@ body {
   .bookWrp {
     height: 32.552vw;
     aspect-ratio: inherit;
+  }
+}
+
+/* Contact Us Page */
+
+.addressDetails {
+  background: #fff;
+}
+
+.contactForm {
+  background: #fff;
+  padding: 20px;
+  height: 100%;
+}
+
+.contactForm h6 {
+  color: #0061af;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.contactForm form.row > * {
+  margin-bottom: 20px;
+}
+.contactForm form .form-control {
+  border: 0;
+  border-bottom: 1px solid #cddde5;
+  border-radius: 0;
+  padding: 0 0 15px 0;
+  font-size: 14px;
+  color: #445671;
+}
+.contactForm form .form-control:focus {
+  box-shadow: none;
+}
+.addRow p span {
+  font-weight: 600;
+}
+.viewMap {
+  display: flex;
+  gap: 0 5px;
+}
+.viewMap img {
+  width: 20px;
+}
+.addRow > * {
+  margin-bottom: 20px;
+}
+.addRow > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 991.99px) {
+  .contactForm {
+    padding: 2.344vw 3.125vw;
+  }
+  .contactForm h6 {
+    font-size: 1.042vw;
+    margin-bottom: 2vw;
+  }
+  .contactForm form.row > * {
+    margin-bottom: 2vw;
+  }
+  .contactForm form .form-control {
+    font-size: 1vw;
+  }
+  .addRow > * {
+    margin-bottom: 2vw;
+  }
+
+  .viewMap {
+    font-size: 1vw;
+  }
+  .viewMap img {
+    width: 1.406vw;
+  }
+}
+
+.legFleetCard .imgWhitePatch {
+  width: 40%;
+}
+.legFleetImg {
+  margin-bottom: 20px;
+}
+.legFleetImg img {
+  width: 100%;
+  aspect-ratio: 5/4;
+  object-fit: cover;
+}
+.legFleetCard h4 {
+  color: #0061af;
+  font-family: var(--clash-display-bold);
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.ddsRow {
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.ddsRow > * {
+  margin-bottom: 10px;
+}
+.ddsRow > *:last-child {
+  margin-bottom: 0;
+}
+.ddsRow span {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.price {
+  color: #0061af;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+@media (min-width: 991.99px) {
+  .legFleetImg {
+    margin-bottom: 1.8vw;
+  }
+  .legFleetCard h4 {
+    margin-bottom: 1.5vw;
+    font-size: 1.146vw;
+  }
+  .ddsRow {
+    margin-bottom: 2vw;
+    font-size: 1.042vw;
+  }
+  .ddsRow > * {
+    margin-bottom: 1vw;
+  }
+  .price {
+    font-size: 1.563vw;
+    margin-bottom: 2.604vw;
+  }
+}
+
+/* About safari page */
+.aboutSafari {
+  background: #fff;
+  padding: 50px 0;
+}
+
+.advImgWrp img {
+  aspect-ratio: 5/4;
+  object-fit: cover;
+}
+.advCard h6 {
+  margin-top: 20px;
+  color: #0061af;
+  font-family: var(--clash-display-bold);
+}
+@media (min-width: 991.99px) {
+  .aboutSafari {
+    padding: 4.948vw 0;
+  }
+  .advCard h6 {
+    margin-top: 1vw;
+  }
+}
+
+.swiperBigImgWrp {
+  aspect-ratio: 16/9;
+  margin-bottom: 20px;
+}
+
+.swiperBigImgWrp img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.swiperSmallImgWrp {
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.swiperSmallImgWrp img {
+  width: 100%;
+}
+
+.aboutFlightInfo {
+  color: #212121;
+  font-size: 13px;
+  margin: 0 0 30px 0;
+}
+
+.aboutFlightInfo span {
+  text-transform: uppercase;
+  font-weight: 600;
+  display: block;
+  color: #445671;
+  width: 85px;
+}
+@media (min-width: 575.99px) {
+  .aboutFlightInfo {
+    font-size: 14px;
+  }
+  .aboutFlightInfo span {
+    width: 100px;
+  }
+}
+
+@media (min-width: 991.99px) {
+  .swiperBigImgWrp {
+    height: 40.885vw;
+    aspect-ratio: inherit;
+    margin-bottom: 1.979vw;
+  }
+
+  .swiperSmallImgWrp {
+    width: 7.292vw;
+  }
+
+  .aboutFlightInfo {
+    margin: 2.083vw 0 3.125vw 0;
+    font-size: 1.042vw;
+  }
+  .aboutFlightInfo span {
+    width: 7vw;
+  }
+}
+
+.whiteSec {
+  background: #fff;
+  padding: 50px 0;
+}
+@media (min-width: 991.99px) {
+  .whiteSec {
+    padding: 4.948vw 0;
+  }
+}
+.jetGalleryCol {
+  aspect-ratio: 1/1;
+}
+.jetGalleryCol img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.jetGalleryRow {
+  --bs-gutter-x: 5px;
+  --bs-gutter-y: 5px;
+  margin-bottom: 20px;
+}
+@media (min-width: 575.99px) {
+  .jetGalleryRow {
+    --bs-gutter-x: 15px;
+    --bs-gutter-y: 15px;
+  }
+}
+@media (min-width: 768.99px) {
+  .jetGalleryCol {
+    aspect-ratio: inherit;
+    height: 250px;
+  }
+}
+@media (min-width: 991.99px) {
+  .jetGalleryCol {
+    height: 29.688vw;
+  }
+  .jetGalleryRow {
+    --bs-gutter-x: 2.604vw;
+    --bs-gutter-y: 2.604vw;
+    margin-bottom: 2.604vw;
   }
 }

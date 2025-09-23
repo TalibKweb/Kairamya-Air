@@ -237,6 +237,51 @@ add_action('init', 'register_empty_flights_custom_post_type');
 
 
 
+
+
+
+
+
+// >>>>>>>>>>>>>>>>> Validate the Name Input field (to not take numbers)
+add_filter( 'wpcf7_validate_text*', 'validate_name_no_numbers', 10, 2 );
+add_filter( 'wpcf7_validate_text', 'validate_name_no_numbers', 10, 2 );
+
+function validate_name_no_numbers( $result, $tag ) {
+    if ( $tag->name === 'your-name' ) {
+        $value = isset( $_POST['your-name'] ) ? trim( $_POST['your-name'] ) : '';
+        if ( preg_match( '/[0-9]/', $value ) ) {
+            $result->invalidate( $tag, "Numbers are not allowed." );
+        }
+    }
+    return $result;
+}
+
+
+// >>>>>>>>>>>>>>>>> Validate Phone field: minimum 10 digits, numbers only
+add_filter( 'wpcf7_validate_tel*', 'validate_phone_min_digits', 10, 2 );
+add_filter( 'wpcf7_validate_tel', 'validate_phone_min_digits', 10, 2 );
+
+function validate_phone_min_digits( $result, $tag ) {
+    if ( $tag->name === 'your-phone' ) {
+        $value = isset( $_POST['your-phone'] ) ? trim( $_POST['your-phone'] ) : '';
+
+        // Remove spaces, hyphens, plus signs for counting
+        $digits_only = preg_replace( '/\D/', '', $value );
+
+        if ( strlen( $digits_only ) < 10 ) {
+            $result->invalidate( $tag, "Please enter a valid phone number." );
+        }
+    }
+    return $result;
+}
+
+
+
+
+
+
+
+
 // >>>>>>>>>>>>>>>>>>> Showing All Post Types
 // add_action('init', function () {
 //     $post_types = get_post_types([], 'objects');
