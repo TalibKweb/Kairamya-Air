@@ -4,32 +4,22 @@ get_header();
 
 
 
-
 <?php
 if (have_posts()):
     while (have_posts()): the_post();
 ?>
 
-
-
-
-
         <div id="smooth-wrapper">
             <div id="smooth-content">
-
                 <main>
 
                     <section class="section">
                         <div class="innerBanner">
                             <video autoplay muted loop>
-
-                                <source src="<?php echo get_template_directory_uri() ?>/images/innerBanner/flights-details.mp4">
-
+                                <source src="<?php echo get_field('spotlight_video')['url'] ?>">
                             </video>
                             <div class="ibTxt">
                                 <div class="container">
-                                    <!-- <h1>Gulfstream g150</h1> -->
-
                                     <h1><?php the_title() ?></h1>
 
                                     <ul class="bredcrumbList">
@@ -47,23 +37,20 @@ if (have_posts()):
                             <div class="row align-items-end">
                                 <div class="col-lg-8 col-xl-7">
                                     <div class="title">
-
                                         <h2><?php the_title() ?></h2>
-
                                     </div>
                                 </div>
                             </div>
-                            <div class="row g-4 align-items-center">
-                                <div class="col-12 col-lg-8">
-                                    <div class="position-relative lc-hero-plane pt-4"
-                                        style="transform: translate3d(-90.4279px, 90.4279px, 0px);">
 
+                            <div class="row g-4 align-items-center">
+
+                                <div class="col-12 col-lg-8">
+                                    <div class="position-relative lc-hero-plane pt-4" style="transform: translate3d(-90.4279px, 90.4279px, 0px);">
                                         <img src="<?php echo get_field('plane_object_image')['url'] ?>" class="img-fluid"
                                             alt="N239JT aircraft">
-
                                     </div>
-
                                 </div>
+
                                 <div class="col-12 col-lg-4">
                                     <div class="card b-r-radius border-0">
                                         <div class="card-body p-4 aircraftCard">
@@ -83,7 +70,7 @@ if (have_posts()):
                                                     :
                                                 </div>
                                                 <div class="col-8">
-                                                    Up to 5 hours of nonstop flight
+                                                    <?php echo get_field('range') ?>
                                                 </div>
                                             </div>
 
@@ -95,7 +82,7 @@ if (have_posts()):
                                                     :
                                                 </div>
                                                 <div class="col-8">
-                                                    7-8 passengers
+                                                    <?php echo get_field('seating') ?>
                                                 </div>
                                             </div>
 
@@ -107,7 +94,7 @@ if (have_posts()):
                                                     :
                                                 </div>
                                                 <div class="col-8">
-                                                    11 Hrs
+                                                    <?php echo get_field('hours') ?>
                                                 </div>
                                             </div>
 
@@ -119,18 +106,17 @@ if (have_posts()):
                                                     :
                                                 </div>
                                                 <div class="col-8">
-                                                    Business Charters, Leisure Travel, High-Altitude Routes
+                                                    <?php echo get_field('perfect_for') ?>
                                                 </div>
                                             </div>
 
                                             <div class="mt-4">
-                                                <a href="#" class="btn btn-primary px-4">Make An Enquiry</a>
+                                                <a href="<?php echo get_field('enquiry_btn_page') ?>" class="btn btn-primary px-4"><?php echo get_field('enquiry_btn_txt') ?></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
 
                         </div>
                     </section>
@@ -139,58 +125,42 @@ if (have_posts()):
 
                         <div class="container">
                             <div class="title">
-                                <h2>Top Private Jet</h2>
-                            </div>
-                            <div class="row jetGalleryRow">
-                                <div class="col-6 col-md-8">
-                                    <div class="jetGalleryCol">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/jetGallery/01.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4">
-                                    <div class="jetGalleryCol">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/jetGallery/02.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4">
-                                    <div class="jetGalleryCol">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/jetGallery/03.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4">
-                                    <div class="jetGalleryCol">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/jetGallery/04.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4">
-                                    <div class="jetGalleryCol">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/jetGallery/05.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4">
-                                    <div class="jetGalleryCol">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/jetGallery/06.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-8">
-                                    <div class="jetGalleryCol">
-                                        <img src="<?php echo get_template_directory_uri() ?>/images/jetGallery/07.png" alt="">
-                                    </div>
-                                </div>
+
+                                <?php if (get_field('top_jet_sec_title')): ?>
+                                    <h2><?php the_field('top_jet_sec_title') ?></h2>
+                                <?php endif; ?>
 
                             </div>
-                            <a href="#" class="btn btn-primary d-table mx-auto">Make an enquiry</a>
+
+                            <!-- >>>>>>>>>>>>>>>>>>>> Dynamic -->
+                            <div class="row jetGalleryRow">
+
+                                <?php
+                                if (have_rows('top_jet_sec_image_gallery')):
+                                    while (have_rows('top_jet_sec_image_gallery')): the_row();
+                                ?>
+                                        <div class="col-6 col-md-4">
+                                            <div class="jetGalleryCol">
+                                                <img src="<?php echo get_sub_field('single_image')['url'] ?>" alt="">
+                                            </div>
+                                        </div>
+
+                                    <?php
+                                    endwhile;
+                                else:
+                                    ?>
+                                    <p>No Gallery Found!</p>
+
+                                <?php endif; ?>
+
+                            </div>
+
+                            <a href="<?php echo get_field('top_jet_enquiry_btn_page') ?>" class="btn btn-primary d-table mx-auto">
+                                <?php echo get_field('top_jet_enquiry_btn_txt') ?></a>
                         </div>
 
                     </section>
-
                 </main>
-
-
-
-
-                
-
 
             <?php
         endwhile;
@@ -201,7 +171,6 @@ if (have_posts()):
         <?php
     endif;
         ?>
-
 
 
 

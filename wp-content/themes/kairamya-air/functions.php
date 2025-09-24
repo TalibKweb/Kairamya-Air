@@ -7,7 +7,6 @@ function add_excerpt_to_default_post() {
 add_action('init', 'add_excerpt_to_default_post');
 
 
-
 // >>>>>>>>>>>>>>>>>>>>> Embed the SVG type media in the backend
 function cc_mime_types($mimes) {
     $mimes['svg'] = 'image/svg+xml';
@@ -21,6 +20,7 @@ function aevier_register_menus() {
     register_nav_menu('primary', 'Primary Menu');
 }
 add_action('after_setup_theme', 'aevier_register_menus');
+
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>> Menu Related Code
 add_filter('nav_menu_css_class', function ($classes, $item, $args) {
@@ -38,23 +38,57 @@ add_filter('nav_menu_link_attributes', function ($atts, $item, $args) {
 }, 10, 3);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // >>>>>>>>>>>>>>>>>>>>> Enable support for featured images
 add_theme_support('post-thumbnails');
 
 
+// >>>>>>>>>>>>>>>>>>>>> Enable support for Dynamic title tags
+function kairamya_theme_title_tag_setup() {
+    add_theme_support('title-tag');
+}
+add_action('after_setup_theme', 'kairamya_theme_title_tag_setup');
+
+
+
+
+
+// >>>>>>>>>>>>>>>>> Validate the Name Input field (to not take numbers)
+add_filter( 'wpcf7_validate_text*', 'validate_name_no_numbers', 10, 2 );
+add_filter( 'wpcf7_validate_text', 'validate_name_no_numbers', 10, 2 );
+
+function validate_name_no_numbers( $result, $tag ) {
+    if ( $tag->name === 'your-name' ) {
+        $value = isset( $_POST['your-name'] ) ? trim( $_POST['your-name'] ) : '';
+        if ( preg_match( '/[0-9]/', $value ) ) {
+            $result->invalidate( $tag, "Numbers are not allowed." );
+        }
+    }
+    return $result;
+}
+
+// >>>>>>>>>>>>>>>>> Validate Phone field: minimum 10 digits, numbers only
+add_filter( 'wpcf7_validate_tel*', 'validate_phone_min_digits', 10, 2 );
+add_filter( 'wpcf7_validate_tel', 'validate_phone_min_digits', 10, 2 );
+
+function validate_phone_min_digits( $result, $tag ) {
+    if ( $tag->name === 'your-phone' ) {
+        $value = isset( $_POST['your-phone'] ) ? trim( $_POST['your-phone'] ) : '';
+
+        // Remove spaces, hyphens, plus signs for counting
+        $digits_only = preg_replace( '/\D/', '', $value );
+
+        if ( strlen( $digits_only ) < 10 ) {
+            $result->invalidate( $tag, "Please enter a valid phone number." );
+        }
+    }
+    return $result;
+}
+
+
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Register Post Types and Taxonomies
 
 // >>>>>>>>>>>>>>>>> Register Aircrafts Custom Post Type
 function register_aircraft_custom_post_type() {
@@ -89,7 +123,6 @@ function register_aircraft_custom_post_type() {
 }
 add_action('init', 'register_aircraft_custom_post_type');
 
-
 // >>>>>>>>>>>>>>>>> Register Aircraft Tag Taxonomy
 function register_aircraft_taxonomy() {
     $labels = [
@@ -119,9 +152,6 @@ function register_aircraft_taxonomy() {
     register_taxonomy('aircraft_tag', ['aircrafts'], $args);
 }
 add_action('init', 'register_aircraft_taxonomy');
-
-
-
 
 
 // >>>>>>>>>>>>>>>>> Register Services Custom Post Type
@@ -158,7 +188,6 @@ function register_services_custom_post_type() {
 add_action('init', 'register_services_custom_post_type');
 
 
-
 // >>>>>>>>>>>>>>>>> Register Private Flights Custom Post Type
 // function register_private_flights_custom_post_type() {
 //     $labels = [
@@ -191,7 +220,6 @@ add_action('init', 'register_services_custom_post_type');
 //     register_post_type('private_flights', $args);
 // }
 // add_action('init', 'register_private_flights_custom_post_type');
-
 
 
 // >>>>>>>>>>>>>>>>> Register Empty Flights Custom Post Type
@@ -230,50 +258,6 @@ add_action('init', 'register_empty_flights_custom_post_type');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// >>>>>>>>>>>>>>>>> Validate the Name Input field (to not take numbers)
-add_filter( 'wpcf7_validate_text*', 'validate_name_no_numbers', 10, 2 );
-add_filter( 'wpcf7_validate_text', 'validate_name_no_numbers', 10, 2 );
-
-function validate_name_no_numbers( $result, $tag ) {
-    if ( $tag->name === 'your-name' ) {
-        $value = isset( $_POST['your-name'] ) ? trim( $_POST['your-name'] ) : '';
-        if ( preg_match( '/[0-9]/', $value ) ) {
-            $result->invalidate( $tag, "Numbers are not allowed." );
-        }
-    }
-    return $result;
-}
-
-
-// >>>>>>>>>>>>>>>>> Validate Phone field: minimum 10 digits, numbers only
-add_filter( 'wpcf7_validate_tel*', 'validate_phone_min_digits', 10, 2 );
-add_filter( 'wpcf7_validate_tel', 'validate_phone_min_digits', 10, 2 );
-
-function validate_phone_min_digits( $result, $tag ) {
-    if ( $tag->name === 'your-phone' ) {
-        $value = isset( $_POST['your-phone'] ) ? trim( $_POST['your-phone'] ) : '';
-
-        // Remove spaces, hyphens, plus signs for counting
-        $digits_only = preg_replace( '/\D/', '', $value );
-
-        if ( strlen( $digits_only ) < 10 ) {
-            $result->invalidate( $tag, "Please enter a valid phone number." );
-        }
-    }
-    return $result;
-}
 
 
 

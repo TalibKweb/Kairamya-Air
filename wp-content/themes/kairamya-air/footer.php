@@ -77,7 +77,7 @@
                             if (have_rows('imp_link_list', 'option')):
                                 while (have_rows('imp_link_list', 'option')): the_row();
                             ?>
-                                    <li><a href="<?php echo get_sub_field('imp_link_url', 'option') ?>"><?php echo get_sub_field('imp_link_text', 'option') ?></a></li>
+                                    <li><a href="<?php echo get_sub_field('imp_link_page_url', 'option') ?>"><?php echo get_sub_field('imp_link_text', 'option') ?></a></li>
                                 <?php
                                 endwhile;
                             else:
@@ -173,6 +173,37 @@
 <script src="<?php echo get_template_directory_uri() ?>/js/anim.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/common.js"></script>
 
+
+<script>
+    // >>>>>>>>>>>>>>> Added for WP integration
+    document.addEventListener("DOMContentLoaded", function() {
+        const name_input = document.querySelectorAll('input[name="your-name"]');
+        const phone_input = document.querySelectorAll('input[name="your-phone"]');
+
+        // >>>>>>>>>>>>>>>> Client side Name validation
+        name_input.forEach(input => {
+            input.addEventListener("input", function() {
+                this.value = this.value.replace(/[0-9!@#$%^&*(),.?":{}|<>_\-\/\\\[\]`~+=;']/g, ""); // remove numbers
+                console.log('Name input change')
+            });
+        });
+
+        // >>>>>>>>>>>>>>>> Client side Phone validation
+        phone_input.forEach(input => {
+            input.addEventListener("input", function(e) {
+                // this.value = this.value.replace(/[A-Za-z\s!@#$%^&*(),.?":{}|<>_\-\/\\\[\]`~+=;']/g, "")
+                this.value = this.value.replace(/\D/g, "")
+                if (this.value.length > 10) {
+                    this.value = this.value.slice(0, 10)
+                    console.log('value is greater than 10')
+                }
+                console.log('Phone input Change!')
+            })
+        })
+
+    });
+</script>
+
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -258,6 +289,7 @@
 
     /********************************************************************/
 
+    // >>>>>>>>>>>>>>> Added for WP integration
     $(document).ready(function() {
         // console.log('plane Thumb', $('.planeThumb:first-child'))
         $('.planeThumb:first-child').addClass('active')

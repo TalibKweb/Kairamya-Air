@@ -2023,6 +2023,13 @@ form.wpcf7-form.contact-us-pg-form .wpcf7-response-output {
 }
 
 
+form.wpcf7-form.contact-us-pg-form textarea,
+form.wpcf7-form.spotlight-form-home-pg textarea,
+form.wpcf7-form.footer-newsletter-form textarea {
+  resize: none !important;
+}
+
+
 /* >>>> Temp CSS */
 .flights-page .section.whiteSec .swiper-slide {
   max-width: 330px;

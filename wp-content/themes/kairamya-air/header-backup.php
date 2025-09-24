@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
-
+    <title><?php bloginfo('name'); ?></title>
     <meta name="description" content="Kairamya Aviation - Private jets, luxury charters, and bespoke air travel.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -18,7 +18,7 @@
     <?php wp_head() ?>
 </head>
 
-<body <?php body_class(); ?> >
+<body>
     <!-- Header / Navbar -->
 
     <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Dynamic -->
@@ -60,7 +60,25 @@
                 </button>
 
             </nav>
-            <?php get_search_form(); ?>
+
+            <div class="position-absolute searchBar row">
+                <input type="search" class="col" placeholder="Search..." />
+                <button class="searchBtn col-auto d-grid align-items-center justify-content-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15.2282 15.2282L22.3273 22.3273" stroke="#01457D" stroke-width="3"
+                            stroke-linecap="round" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M9.62275 17.2455C13.8327 17.2455 17.2455 13.8327 17.2455 9.62275C17.2455 5.41282 13.8327 2 9.62275 2C5.41282 2 2 5.41282 2 9.62275C2 13.8327 5.41282 17.2455 9.62275 17.2455Z"
+                            stroke="#01457D" stroke-width="3" />
+                    </svg>
+                </button>
+
+                <a href="" class="closeBtn"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path
+                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                        </svg></span></a>
+            </div>
 
         </div>
     </header>
