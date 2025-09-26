@@ -293,7 +293,7 @@ get_header();
                                             </svg>
                                             <img src="<?php the_post_thumbnail_url() ?>"
                                                 class="img-fluid shadow-sm" alt="Onboard luxury">
-                                            <a style="text-decoration: none;" href="<?php the_permalink() ?>">
+                                            <a style="text-decoration: none;" href="/services/">
                                                 <h5 class="mt-4 text-primary"><?php the_title() ?></h5>
                                                 <p class="text-secondary"><?php the_excerpt() ?></p>
                                             </a>
@@ -340,7 +340,7 @@ get_header();
                                 <p class="lead mb-4 text-secondary"><?php the_field('who_we_are_description') ?></p>
                             <?php endif; ?>
 
-                            <a href="<?php echo get_field('who_we_are_btn_page') ?>" class="btn btn-primary px-4"><?php echo get_field('who_we_are_btn_txt') ?></a>
+                            <a href="/about-us/" class="btn btn-primary px-4">About Us</a>
 
                         </div>
                     </div>
@@ -390,7 +390,7 @@ get_header();
                                     <p class="text-secondary mb-4"><?php the_field('pvt_flight_description') ?></p>
                                 <?php endif; ?>
 
-                                <a href="<?php echo get_field('pvt_flight_btn_page') ?>" class="btn btn-primary"><?php echo get_field('pvt_flight_btn_txt') ?></a>
+                                <a href="/empty-leg-fleet/" class="btn btn-primary">Discover More</a>
                             </div>
                         </div>
 
@@ -448,9 +448,9 @@ get_header();
                                                 </div>
 
                                                 <div class="card-footer bg-transparent border-0">
-                                                    <a href="<?php echo get_field('book_btn_page_url') ?>"
+                                                    <a href="/contact-us/"
                                                         class="btn btn-accent bookNowBtn w-100 justify-content-between d-flex align-items-center">
-                                                        <span><?php echo get_field('book_btn_txt') ?></span> <span><svg xmlns="http://www.w3.org/2000/svg"
+                                                        <span>Book Now</span> <span><svg xmlns="http://www.w3.org/2000/svg"
                                                                 width="77" height="33" viewBox="0 0 77 33" fill="none">
                                                                 <path
                                                                     d="M54.2109 0.612305C54.4496 0.491625 54.7503 0.463591 55.0117 0.551758C55.3059 0.651033 55.5306 0.836196 55.6377 1.08008L55.6416 1.08984L55.6465 1.09863C57.6602 5.19793 60.6684 8.73097 64.0508 11.2422C67.429 13.7502 71.2127 15.2626 74.7783 15.2627C75.3406 15.2627 75.8611 15.7538 75.8613 16.3643C75.8613 16.9839 75.3757 17.4668 74.7783 17.4668C70.9497 17.4669 66.7931 19.1453 63.3057 21.708C59.8175 24.2713 56.9361 27.7643 55.708 31.4697C55.5545 31.8933 55.1279 32.1962 54.6885 32.1963C54.5956 32.1963 54.5458 32.1775 54.3477 32.127C53.7931 31.944 53.4849 31.3459 53.6699 30.7529C54.8215 27.2179 57.4793 23.6043 61.0674 20.7158L64.0127 18.3564L65.125 17.4668H1.58301C0.985637 17.4668 0.5 16.9839 0.5 16.3643C0.50018 15.7448 0.985748 15.2627 1.58301 15.2627H65.3828L64.3291 14.3799L61.5156 12.0205H61.5146C58.3176 9.35282 55.6339 5.89274 53.7285 2.0791C53.6086 1.8348 53.5805 1.52644 53.6689 1.25781C53.7684 0.955824 53.9527 0.729986 54.1904 0.623047L54.2002 0.618164L54.2109 0.612305Z"
@@ -494,7 +494,6 @@ get_header();
                                 <h2 class="section-title mb-3"><?php the_field('testimonial_sub_title') ?></h2>
                             <?php endif; ?>
 
-                            <a href="<?php echo get_field('testimonial_btn_page') ?>" class="btn btn-primary"><?php echo get_field('testimonial_btn_txt') ?></a>
                         </div>
 
                         <div class="col-lg-6 position-relative">

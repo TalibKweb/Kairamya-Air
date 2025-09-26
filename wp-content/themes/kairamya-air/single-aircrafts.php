@@ -111,7 +111,7 @@ if (have_posts()):
                                             </div>
 
                                             <div class="mt-4">
-                                                <a href="<?php echo get_field('enquiry_btn_page') ?>" class="btn btn-primary px-4"><?php echo get_field('enquiry_btn_txt') ?></a>
+                                                <a href="/contact-us/" class="btn btn-primary px-4">Make An Enquiry</a>
                                             </div>
                                         </div>
                                     </div>
@@ -155,8 +155,8 @@ if (have_posts()):
 
                             </div>
 
-                            <a href="<?php echo get_field('top_jet_enquiry_btn_page') ?>" class="btn btn-primary d-table mx-auto">
-                                <?php echo get_field('top_jet_enquiry_btn_txt') ?></a>
+                            <a href="/contact-us/" class="btn btn-primary d-table mx-auto">
+                                Make An Enquiry</a>
                         </div>
 
                     </section>

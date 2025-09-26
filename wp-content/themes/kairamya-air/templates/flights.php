@@ -38,10 +38,10 @@ get_header();
                     </video>
                     <div class="ibTxt">
                         <div class="container">
-                            <h1>Flight</h1>
+                            <h1><?php echo the_title() ?></h1>
                             <ul class="bredcrumbList">
                                 <li><a href="/">Home</a></li>
-                                <li>Flight</li>
+                                <li><?php echo the_title() ?></li>
                             </ul>
                         </div>
                     </div>

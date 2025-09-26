@@ -18,13 +18,11 @@ get_header();
                 <div class="ibTxt">
                     <div class="container">
 
-                        <?php if (get_field('spotlight_heading_txt')): ?>
-                            <h1><?php the_field('spotlight_heading_txt') ?></h1>
-                        <?php endif; ?>
+                        <h1><?php echo the_title() ?></h1>
 
                         <ul class="bredcrumbList">
                             <li><a href="/">Home</a></li>
-                            <li><?php echo get_field('spotlight_heading_txt') ?></li>
+                            <li><?php echo the_title() ?></li>
                         </ul>
                     </div>
                 </div>
@@ -117,7 +115,7 @@ get_header();
                                                     <h4><?php the_title() ?></h4>
                                                     <p><?php the_excerpt() ?></p>
 
-                                                    <a href="<?php echo get_field('enquiry_btn_page') ?>" class="btn btn-primary px-4"><?php echo get_field('enquiry_btn_txt') ?></a>
+                                                    <a href="/contact-us/" class="btn btn-primary px-4">Make An Enquiry</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -160,7 +158,10 @@ get_header();
 
                                 </div>
 
-                                <a href="<?php echo get_field('book_inst_btn_page') ?>" class="btn btn-primary px-4 d-table mx-auto"><?php echo get_field('book_inst_btn_txt') ?></a>
+                                <a href="/contact-us/"
+                                    class="btn btn-primary px-4 d-table mx-auto">
+                                    Make An Enquiry
+                                </a>
                             </div>
                         </div>
 

@@ -19,13 +19,11 @@ get_header();
                 <div class="ibTxt">
                     <div class="container">
 
-                        <?php if (get_field('spotlight_title')): ?>
-                            <h1><?php the_field('spotlight_title') ?></h1>
-                        <?php endif; ?>
+                        <h1><?php echo the_title() ?></h1>
 
                         <ul class="bredcrumbList">
                             <li><a href="">Home</a></li>
-                            <li><?php echo get_field('spotlight_title') ?></li>
+                            <li><?php echo the_title() ?></li>
                         </ul>
                     </div>
                 </div>

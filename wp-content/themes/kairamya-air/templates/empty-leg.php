@@ -18,13 +18,11 @@ get_header();
                 <div class="ibTxt">
                     <div class="container">
 
-                        <?php if (get_field('spotlight_title')): ?>
-                            <h1><?php the_field('spotlight_title') ?></h1>
-                        <?php endif; ?>
+                        <h1><?php echo the_title() ?></h1>
 
                         <ul class="bredcrumbList">
                             <li><a href="">Home</a></li>
-                            <li><?php echo get_field('spotlight_title') ?></li>
+                            <li><?php echo the_title() ?></li>
                         </ul>
                     </div>
                 </div>
@@ -112,8 +110,7 @@ get_header();
                                         </div>
                                     </div>
                                     <!-- <h6 class="price">US$3,000</h6> -->
-                                    <!-- <a href="#" class="btn btn-primary">Make An Enquiry</a> -->
-                                    <a href="<?php echo get_field('book_btn_page_url') ?>" class="btn btn-primary"><?php echo get_field('book_btn_txt') ?></a>
+                                    <a href="/contact-us/" class="btn btn-primary">Make An Enquiry</a>
                                 </div>
                             </div>
 
@@ -123,7 +120,6 @@ get_header();
                     else:
                         ?>
                         <h4>No Data Found!</h4>
-
                     <?php
                     endif;
                     ?>
